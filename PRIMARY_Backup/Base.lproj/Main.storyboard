@@ -731,6 +731,17 @@
                                     <action selector="startButtonPressed:" target="XfG-lQ-9wD" id="pUE-Qj-az5"/>
                                 </connections>
                             </button>
+                            <button verticalHuggingPriority="750" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="E8v-G8-iXq">
+                                <rect key="frame" x="385" y="13" width="81" height="32"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMinY="YES"/>
+                                <buttonCell key="cell" type="push" title="Test" bezelStyle="rounded" alignment="center" borderStyle="border" imageScaling="proportionallyDown" inset="2" id="eYE-mK-lao">
+                                    <behavior key="behavior" pushIn="YES" lightByBackground="YES" lightByGray="YES"/>
+                                    <font key="font" metaFont="system"/>
+                                    <connections>
+                                        <action selector="testButtonPressed:" target="XfG-lQ-9wD" id="n4N-oj-wyI"/>
+                                    </connections>
+                                </buttonCell>
+                            </button>
                         </subviews>
                     </view>
                     <connections>
@@ -739,6 +750,7 @@
                         <outlet property="copyTo" destination="p1C-CU-f1a" id="9og-q2-LNf"/>
                         <outlet property="copyToPath" destination="dbF-uG-VDM" id="EcY-57-Swo"/>
                         <outlet property="startButton" destination="U0o-8Z-Tjj" id="vpa-C4-LOv"/>
+                        <outlet property="testButton" destination="E8v-G8-iXq" id="Imf-gs-OPw"/>
                     </connections>
                 </viewController>
                 <customObject id="rPt-NT-nkU" userLabel="First Responder" customClass="NSResponder" sceneMemberID="firstResponder"/>
