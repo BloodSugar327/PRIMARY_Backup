@@ -7,6 +7,8 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		6F4226F21E69FB1A00BA80AB /* Custom_Functions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6F4226F11E69FB1A00BA80AB /* Custom_Functions.swift */; };
+		6F6DEB0C1E6A201800B898F9 /* FolderMerger.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6F6DEB0B1E6A201800B898F9 /* FolderMerger.swift */; };
 		6FAC36C71E68E2EC0097AD1D /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6FAC36C61E68E2EC0097AD1D /* AppDelegate.swift */; };
 		6FAC36C91E68E2EC0097AD1D /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6FAC36C81E68E2EC0097AD1D /* ViewController.swift */; };
 		6FAC36CB1E68E2EC0097AD1D /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 6FAC36CA1E68E2EC0097AD1D /* Assets.xcassets */; };
@@ -14,6 +16,8 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		6F4226F11E69FB1A00BA80AB /* Custom_Functions.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Custom_Functions.swift; sourceTree = "<group>"; };
+		6F6DEB0B1E6A201800B898F9 /* FolderMerger.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FolderMerger.swift; sourceTree = "<group>"; };
 		6FAC36C31E68E2EC0097AD1D /* PRIMARY_Backup.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = PRIMARY_Backup.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		6FAC36C61E68E2EC0097AD1D /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		6FAC36C81E68E2EC0097AD1D /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
@@ -57,6 +61,8 @@
 				6FAC36CA1E68E2EC0097AD1D /* Assets.xcassets */,
 				6FAC36CC1E68E2EC0097AD1D /* Main.storyboard */,
 				6FAC36CF1E68E2EC0097AD1D /* Info.plist */,
+				6F4226F11E69FB1A00BA80AB /* Custom_Functions.swift */,
+				6F6DEB0B1E6A201800B898F9 /* FolderMerger.swift */,
 			);
 			path = PRIMARY_Backup;
 			sourceTree = "<group>";
@@ -132,8 +138,10 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				6F4226F21E69FB1A00BA80AB /* Custom_Functions.swift in Sources */,
 				6FAC36C91E68E2EC0097AD1D /* ViewController.swift in Sources */,
 				6FAC36C71E68E2EC0097AD1D /* AppDelegate.swift in Sources */,
+				6F6DEB0C1E6A201800B898F9 /* FolderMerger.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -286,6 +294,7 @@
 				6FAC36D41E68E2EC0097AD1D /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
 	};
