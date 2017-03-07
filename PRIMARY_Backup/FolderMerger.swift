@@ -12,7 +12,8 @@
 import Foundation
 import Cocoa
 
-class Folder_Merger {
+class Folder_Merger
+{
     
     //Create two enumerations to control the type of movement and conflict resolution options
     enum ActionType { case move, copy }
@@ -72,20 +73,20 @@ class Folder_Merger {
                     {
                         //Create folder
                         try fileManager.createDirectory(atPath: subItemToPath, withIntermediateDirectories: true, attributes: nil)
-                        print("FoldersMerger: directory created: \(subItemToPath)")
+                        print("FolderMerger: directory created: \(subItemToPath)")
                         
                     }
                     catch let error
                     {
                         //Catch folder creation error
-                        print("ERROR FoldersMerger: \(error.localizedDescription)" )
+                        print("ERROR FolderMerger: \(error.localizedDescription)" )
                         
                     }
                 }
                 else
                 {
                     //Folder already exists, no need to create new folder
-                    print("FoldersMerger: directory \(subItemToPath) already exists" )
+                    print("FolderMerger: directory \(subItemToPath) already exists" )
                     
                 }
             }
@@ -101,13 +102,13 @@ class Folder_Merger {
                     {
                         //Delete thie file
                         try fileManager.removeItem(atPath: subItemToPath)
-                        print("FoldersMerger: file deleted: \(subItemToPath)" )
+                        print("FolderMerger: file deleted: \(subItemToPath)" )
                         
                     }
                     catch let error
                     {
                         //Catch file deletion error
-                        print("ERROR FoldersMerger: \(error.localizedDescription)")
+                        print("ERROR FolderMerger: \(error.localizedDescription)")
                         
                     }
                 }
@@ -119,13 +120,13 @@ class Folder_Merger {
                     
                     //Move the file
                     try fileManager.moveItem(atPath: subItemAtPath, toPath: subItemToPath)
-                    print("FoldersMerger: file moved from \(subItemAtPath) to \(subItemToPath)")
+                    print("FolderMerger: file moved from \(subItemAtPath) to \(subItemToPath)")
                     
                 }
                 catch let error
                 {
                     //Catch file move error
-                    print("ERROR FoldersMerger: \(error.localizedDescription)")
+                    print("ERROR FolderMerger: \(error.localizedDescription)")
                     
                 }
             }
@@ -152,7 +153,7 @@ class Folder_Merger {
                     catch
                     {
                         //Catch folder deletion error
-                        print("ERROR FoldersMerger: \(error.localizedDescription)")
+                        print("ERROR FolderMerger: \(error.localizedDescription)")
                     }
                 }
             }

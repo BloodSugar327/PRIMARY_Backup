@@ -17,16 +17,16 @@ func InStr(find: String, inString: String) -> Int
     //String that will be searched
     let string = inString
     //Sought for character
-    let needle: Character = find[find.startIndex]
+    let characterToFind: Character = find[find.startIndex]
     
     //If the character is found withing the string
-    if let idx = string.characters.index(of: needle)
+    if let idx = string.characters.index(of: characterToFind)
     {
         //Let pos equal the array slot distance from the beggining of the string to the index point.
-        let pos = string.characters.distance(from: string.startIndex, to: idx) as Int
+        let characterIndex = string.characters.distance(from: string.startIndex, to: idx) as Int
         //Print result to the console and return the value
-        print("Found \(needle) at position \(pos)")
-        return pos
+        print("Found \(characterToFind) at position \(characterIndex)")
+        return characterIndex
 
     }
     //If the character is not found withing the string
@@ -39,11 +39,6 @@ func InStr(find: String, inString: String) -> Int
 
 }
 
-
-
-
-
-
 //Extension to the string construct that will return the position of a character within a string.
 //This is a different but close take on the VB function, but using Swift's extension to implement it.
 extension String
@@ -55,11 +50,11 @@ extension String
         if let range = self.range(of: target)
         {
             //The number of characters from the start of the string to the first letter of the string being sought for
-            let pos = characters.distance(from: startIndex, to: range.lowerBound) as Int
+            let stringIndex = characters.distance(from: startIndex, to: range.lowerBound) as Int
             
             //Print result to the console and return the value
-            print("Found \(self) at position \(pos)")
-            return pos
+            print("Found \(self) at position \(stringIndex)")
+            return stringIndex
             
         }
         //If not found
@@ -74,16 +69,16 @@ extension String
         //Return the index of the last instance of String within a String
     func lastIndex(of target: String) -> Int?
     {
-                //If the the string being sought for is found within the String calling this function, starting from the end
-        if let range = self.range(of: target, options: .backwards)
+        //If the the string being sought for is found within the String calling this function; starting from the end
+        if let stringRange = self.range(of: target, options: .backwards)
         {
             
             //The number of characters from the start of the string to the first letter of the string being sought for
-            let pos = characters.distance(from: startIndex, to: range.lowerBound) as Int
+            let stringIndex = characters.distance(from: startIndex, to: stringRange.lowerBound) as Int
             
             //Print result to the console and return the value
-            print("Found \(self) at position \(pos)")
-            return characters.distance(from: startIndex, to: range.lowerBound)
+            print("Found \(self) at position \(stringIndex)")
+            return characters.distance(from: startIndex, to: stringRange.lowerBound)
             
         }
         //If not found

@@ -16,7 +16,7 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
-		6F4226F11E69FB1A00BA80AB /* Custom_Functions.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Custom_Functions.swift; sourceTree = "<group>"; };
+		6F4226F11E69FB1A00BA80AB /* Custom_Functions.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Custom_Functions.swift; sourceTree = "<group>"; usesTabs = 0; };
 		6F6DEB0B1E6A201800B898F9 /* FolderMerger.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FolderMerger.swift; sourceTree = "<group>"; };
 		6FAC36C31E68E2EC0097AD1D /* PRIMARY_Backup.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = PRIMARY_Backup.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		6FAC36C61E68E2EC0097AD1D /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
