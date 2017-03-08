@@ -69,13 +69,32 @@ class ViewController: NSViewController
         @IBAction func testButtonPressed(_ sender: Any)
             {
                 
-                let textToCut = copyFrom.stringValue
+                //If the copyFrom path is not empty
+                if copyFromPath.url  != nil
+                {
+                    //If the copyTo path is not empyy
+                    if  copyToPath.url != nil
+                    {
+                        //Assign NSPathControl values to the URL variables
+                        fromURL = copyFromPath.url
+                        toURL = copyToPath.url
+                        
+                        //Show the fromURL on the copyFrom box for debugging
+                        copyFrom.stringValue = fromURL.absoluteString
+                        
+                    }
+                }
                 
-               copyTo.stringValue =  textToCut.right(Integer: 5)!
+                //Declare and initialize the custom Folder_Merger class
+                let merger = Folder_Merger(actionType: .copy, conflictResolution: .keepDestination)
+                
+                //Merge the folders using the fromURl and toURL variables
+                merger.merge(atPath: fromURL.path, toPath: toURL.path)
                 
                 
             }
-        
+    
+    
         //Displays an Alert box on screen for the user to dismiss
         func dialogAlert(alert: String, text: String) -> Bool
             {

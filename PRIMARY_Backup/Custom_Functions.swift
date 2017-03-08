@@ -12,7 +12,7 @@ import Cocoa
 
 /**
     Name: InStr
-    Description: Same as the InStr() function in VB that will return the position of a character within a string.
+    Description: Same as the InStr() function in VB that will return an integer specifying the start position of the first occurrence of one string within another
 
     Parameters:
     - find: The string that is being looked for
@@ -64,13 +64,13 @@ extension String
     
         /**
             Name: index
-            Description: Find the index of the first instance of String within a String
+            Description: Returns an integer specifying the start position of the first occurrence of one string within another
 
             Parameters:
-            - of taget: The string that is being looked for
+            - of taget: The string that is being searched for
 
             Returns: 
-            - Int: Index of the first letter in found string
+            - Int: Position at which the first match is found
      
          */
     
@@ -94,17 +94,17 @@ extension String
                     }
                 
             }
-    
+            //End of func
     
         /**
             Name: lastIndex
-            Description: Find the index of the last instance of String within a String
+            Description: Returns the position of the first occurrence of one string within another, starting from the right side of the string.
 
             Parameters:
-            - of taget: The string that is being looked for
+            - of taget: The string that is being searched for
 
             Returns: 
-            - Int: An integer that is the index of the first letter in found string
+            - Int: Position at which the first match is found, starting with the right side of the string.
      
          */
     
@@ -128,6 +128,7 @@ extension String
                     }
                 
             }
+            //End of func
     
         /**
             Name: left
@@ -141,7 +142,7 @@ extension String
      
          */
     
-        func left(lenght: Int) -> String?
+        func Left(lenght: Int) -> String?
             {
                 //If the Integer is not bigger than the string lenght
                 if self.characters.count >= lenght
@@ -175,53 +176,84 @@ extension String
                          return ""
                     }
             }
+            //End of func
     
-    /**
-     Name: right
-     Description: Trim a certain number of characters from the right side of the string
-     
-     Parameters:
-     - lenght: The number of characters to return from the right
-     
-     Returns:
-     - String: A string containing the specified number of characters in original string starting from the right
-     
-     */
-    func right(lenght: Int) -> String?
+        /**
+         Name: right
+         Description: Trim a certain number of characters from the right side of the string
+         
+         Parameters:
+         - lenght: The number of characters to return from the right
+         
+         Returns:
+         - String: A string containing the specified number of characters in original string starting from the right
+         
+         */
+        func Right(lenght: Int) -> String?
+            {
+                //If the Integer is not bigger than the string lenght
+                if self.characters.count >= lenght
+                    {
+                        //If the number is not 0
+                        if lenght > 0
+                            {
+                                //The start of the range is the indexNumber from the endIndex minus the Integer
+                                let start = self.index(self.endIndex, offsetBy: lenght * -1)
+                                //The end of the range is the last index of the string
+                                let end = self.endIndex
+                                //Assign the range to a variable
+                                let range = start..<end
+                                
+                                //String variable will hold the new substring from range
+                                let leftString = self.substring(with: range)
+                                
+                                //Return the new string
+                                return leftString
+                            }
+                        //The number was 0
+                        else
+                            {
+                                //Return a blank string
+                                return ""
+                            }
+                    }
+                else
+                    {
+                        return ""
+                    }
+                
+                
+            }
+            //End of func
+    
+        /**
+         Name: Len
+         Description: Retuns the lenght of the string
+         
+         Parameters:
+         - None
+         
+         Returns:
+         - Int: The lenght of the string
+         
+         */
+        func Len() -> Int?
         {
             //If the Integer is not bigger than the string lenght
-            if self.characters.count >= lenght
-                {
-                    //If the number is not 0
-                    if lenght > 0
-                        {
-                            //The start of the range is the indexNumber from the endIndex minus the Integer
-                            let start = self.index(self.endIndex, offsetBy: lenght * -1)
-                            //The end of the range is the last index of the string
-                            let end = self.endIndex
-                            //Assign the range to a variable
-                            let range = start..<end
-                            
-                            //String variable will hold the new substring from range
-                            let leftString = self.substring(with: range)
-                            
-                            //Return the new string
-                            return leftString
-                        }
-                    //The number was 0
-                    else
-                        {
-                            //Return a blank string
-                            return ""
-                        }
-                }
+            if self != ""
+            {
+                return self.characters.count
+                
+            }
             else
-                {
-                    return ""
-                }
+            {
+                return 0
+            }
             
             
         }
+        //End of func
     
     }
+    //End of extension
 

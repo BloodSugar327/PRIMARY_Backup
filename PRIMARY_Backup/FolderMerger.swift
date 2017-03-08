@@ -76,7 +76,7 @@ class Folder_Merger
                                         folders.append(subItemAtPath)
                                     }
                                 
-                                //If this folder does not exist
+                                //If destination folder does not exist
                                 if !isDir(atPath: subItemToPath)
                                     {
                                         do
@@ -103,12 +103,13 @@ class Folder_Merger
                         else
                             {
                                 //TODO: Explore different options to keep source/keep destination. Currently errors happen when deleting the old files after moving.
-                                //If file already exists in path, delete it to move in the new version
+                                
+                                //If the path is an item, and the source will be kepy, delete the old file and copy the new one over.
                                 if isFile(atPath:subItemToPath) && conflictResolution == .keepSource
                                     {
                                         do
                                             {
-                                                //Delete thie file
+                                                //Delete the file
                                                 try fileManager.removeItem(atPath: subItemToPath)
                                                 print("FolderMerger: file deleted: \(subItemToPath)" )
                                             }
@@ -117,22 +118,51 @@ class Folder_Merger
                                                 //Catch file deletion error
                                                 print("ERROR FolderMerger: \(error.localizedDescription)")
                                             }
-                                    }
                                 
-                                //Move new version of file over to path
-                                do
-                                    {
-                                        //TODO: Use if statement to determine whether the item should be moved or copied.
-                                        // Maybe instead of using the moveItem command, use the copy item and then delete old file
+                                        //Move new version of file over to path
+                                        do
+                                        {
+                                            
+                                            //Move the file
+                                            try fileManager.copyItem(atPath: subItemAtPath, toPath: subItemToPath)
+                                            print("FolderMerger: file moved from \(subItemAtPath) to \(subItemToPath)")
+                                        }
+                                        catch let error
+                                        {
+                                            //Catch file move error
+                                            print("ERROR FolderMerger: \(error.localizedDescription)")
+                                        }
                                         
-                                        //Move the file
-                                        try fileManager.moveItem(atPath: subItemAtPath, toPath: subItemToPath)
-                                        print("FolderMerger: file moved from \(subItemAtPath) to \(subItemToPath)")
+                                        
                                     }
-                                catch let error
+                                //If the path is an item, and the source will be deleted, delete the old file and move the new one over.
+                                else if isFile(atPath:subItemToPath) && conflictResolution == .keepDestination
                                     {
-                                        //Catch file move error
-                                        print("ERROR FolderMerger: \(error.localizedDescription)")
+                                        do
+                                            {
+                                                //Delete the file
+                                                try fileManager.removeItem(atPath: subItemToPath)
+                                                print("FolderMerger: file deleted: \(subItemToPath)" )
+                                            }
+                                        catch let error
+                                            {
+                                                //Catch file deletion error
+                                                print("ERROR FolderMerger: \(error.localizedDescription)")
+                                            }
+                                        
+                                        //Move new version of file over to path
+                                        do
+                                            {
+                                                
+                                                //Move the file
+                                                try fileManager.moveItem(atPath: subItemAtPath, toPath: subItemToPath)
+                                                print("FolderMerger: file moved from \(subItemAtPath) to \(subItemToPath)")
+                                            }
+                                        catch let error
+                                            {
+                                                //Catch file move error
+                                                print("ERROR FolderMerger: \(error.localizedDescription)")
+                                            }
                                     }
                             }
                     }
