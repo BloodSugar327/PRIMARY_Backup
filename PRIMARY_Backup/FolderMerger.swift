@@ -34,7 +34,20 @@ class Folder_Merger
                 self.conflictResolution = conflictResolution
                 self.deleteEmptyFolders = deleteEmptyFolders
             }
-        
+    
+        /**
+            Name: merge
+            Description: Merge two folders using two paths
+     
+            Parameters:
+            - atPath: The path that will be copied from
+            - toPath: The path that will be copied to
+
+            Returns: 
+            - Nothing
+     
+         */
+    
         //Function used to merge folders using two String based paths
         func merge(atPath: String, toPath: String)
             {
@@ -151,8 +164,20 @@ class Folder_Merger
                     }
                 }
             }
-        
-        //Function used to determine whether the path is a directory
+    
+    
+        /**
+            Name: isDir
+            Description: Determines whether the path is a directory
+         
+            Parameters:
+            - atPath: The path that will be checked
+
+            Returns: 
+            - Boolean: Used by caller
+     
+         */
+    
         private func isDir(atPath: String) -> Bool
         {
             //Declare variable that will hold the return value of fileExist check
@@ -162,9 +187,20 @@ class Folder_Merger
             
             return exist && isDir.boolValue
         }
-        
-        //Function used to determine whether the path is a file
-        private func isFile(atPath: String) -> Bool 
+    
+    
+        /**
+            Name: isFile
+            Description: Determines whether the path is a file
+         
+            Parameters:
+            - atPath: The path that will be checked
+
+            Returns: 
+            - Boolean: Used by caller
+     
+         */
+        private func isFile(atPath: String) -> Bool
         {
             //Declare variable that will hold the return value of fileExist check
             var isDir: ObjCBool = false
@@ -173,8 +209,20 @@ class Folder_Merger
             
             return exist && !isDir.boolValue
         }
-        
-        //Function used to determin is the direcoty is empy
+    
+    
+        /**
+            Name: isDirEmpty
+            Description: Determines whether the path directory is empty
+
+            Parameters:
+            - atPath: The path that will be checked
+
+            Returns: 
+            - Boolean: Used by caller
+     
+         */
+    
         private func isDirEmpty(atPath: String) -> Bool
         {
             do

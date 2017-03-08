@@ -10,7 +10,19 @@ import Foundation
 import Cocoa
 
 
-//Same as the InStr() function in VB that will return the position of a character within a string.
+/**
+    Name: InStr
+    Description: Same as the InStr() function in VB that will return the position of a character within a string.
+
+    Parameters:
+    - find: The string that is being looked for
+    - inString: The string being searched
+
+    Returns: 
+    - Int: The index of found string, or 0 if string was not found
+
+ */
+
 func InStr(find: String, inString: String) -> Int
     {
         
@@ -37,11 +49,31 @@ func InStr(find: String, inString: String) -> Int
             }
     }
 
-//Extension to the string construct that will return the position of a character within a string.
-//This is a different but close take on the VB function, but using Swift's extension to implement it.
+
+/*********************************************************************************************************************
+**********************************************************************************************************************
+ 
+ Custom Extensions to the String contruct with different purposes
+
+**********************************************************************************************************************
+**********************************************************************************************************************/
+
+
 extension String
     {
-        //Return the index of the first instance of String within a String
+    
+        /**
+            Name: index
+            Description: Find the index of the first instance of String within a String
+
+            Parameters:
+            - of taget: The string that is being looked for
+
+            Returns: 
+            - Int: Index of the first letter in found string
+     
+         */
+    
         func index(of target: String) -> Int?
             {
                 //If the the string being sought for is found within the String calling this function
@@ -62,8 +94,20 @@ extension String
                     }
                 
             }
-        
-        //Return the index of the last instance of String within a String
+    
+    
+        /**
+            Name: lastIndex
+            Description: Find the index of the last instance of String within a String
+
+            Parameters:
+            - of taget: The string that is being looked for
+
+            Returns: 
+            - Int: An integer that is the index of the first letter in found string
+     
+         */
+    
         func lastIndex(of target: String) -> Int?
             {
                 //If the the string being sought for is found within the String calling this function; starting from the end
@@ -85,19 +129,30 @@ extension String
                 
             }
     
-        //Returns a certain number of characters in the String starting from the left.
-        func left(Integer: Int) -> String?
+        /**
+            Name: left
+            Description: Trim a certain number of characters from the left side of the string
+
+            Parameters:
+            - lenght: The number of characters to return from the left
+
+            Returns: 
+            - String: A string containing the specified number of characters in original string starting from the left
+     
+         */
+    
+        func left(lenght: Int) -> String?
             {
                 //If the Integer is not bigger than the string lenght
-                if self.characters.count >= Integer
+                if self.characters.count >= lenght
                     {
                         //If the number is not 0
-                        if Integer > 0
+                        if lenght > 0
                             {
                                 //The start of the range is the first index of the string
                                 let start = self.startIndex
                                 //The end of the range is the distance from the startIndex to the Integer that was input
-                                let end = self.index(self.startIndex, offsetBy: Integer)
+                                let end = self.index(self.startIndex, offsetBy: lenght)
                                 //Assign the range to a variable
                                 let range = start..<end
                     
@@ -121,17 +176,27 @@ extension String
                     }
             }
     
-    //Returns a certain number of characters in the String starting from the left.
-    func right(Integer: Int) -> String?
+    /**
+     Name: right
+     Description: Trim a certain number of characters from the right side of the string
+     
+     Parameters:
+     - lenght: The number of characters to return from the right
+     
+     Returns:
+     - String: A string containing the specified number of characters in original string starting from the right
+     
+     */
+    func right(lenght: Int) -> String?
         {
             //If the Integer is not bigger than the string lenght
-            if self.characters.count >= Integer
+            if self.characters.count >= lenght
                 {
                     //If the number is not 0
-                    if Integer > 0
+                    if lenght > 0
                         {
                             //The start of the range is the indexNumber from the endIndex minus the Integer
-                            let start = self.index(self.endIndex, offsetBy: Integer * -1)
+                            let start = self.index(self.endIndex, offsetBy: lenght * -1)
                             //The end of the range is the last index of the string
                             let end = self.endIndex
                             //Assign the range to a variable
