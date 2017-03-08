@@ -101,8 +101,6 @@ class Folder_Merger
                         //If its a file
                         else
                             {
-                                //TODO: Explore different options to keep source/keep destination. Currently errors happen when deleting the old files after moving.
-                                //If file already exists in path, delete it to move in the new version
                                 if isFile(atPath:subItemToPath) && conflictResolution == .keepSource
                                     {
                                         do
@@ -135,6 +133,7 @@ class Folder_Merger
                                     }
                                 else
                                     {
+                                        
                                         //Move new version of file over to path
                                         do
                                         {
@@ -147,6 +146,8 @@ class Folder_Merger
                                             //Catch file move error
                                             print("ERROR FolderMerger: \(error.localizedDescription)")
                                         }
+                                        
+                                        //TODO: Set up code to delete the folders in the old directory
                                     }
                             }
                     }
