@@ -3,8 +3,8 @@
 macOS App to automate pre-backup sorting and file movement.
 
 # Specifications
-_ Tested on: _
+Tested on:
 - macOS Sierra (10.12.2)
 
-_ Language: _
+Language:
 - Swift (3.x)
